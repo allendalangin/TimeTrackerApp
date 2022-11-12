@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId) {
 
-                R.id.menu -> replaceFragment(Menu())
                 R.id.tasks -> replaceFragment(Tasks())
                 R.id.calendar -> replaceFragment(Calendar())
                 R.id.profile -> replaceFragment(Profile())
