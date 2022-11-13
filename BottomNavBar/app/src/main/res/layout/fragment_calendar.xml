@@ -1,24 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/material_dynamic_tertiary50"
-    tools:context=".Calendar">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calendar Fragment"
-        android:textSize="26dp"
-        android:layout_gravity="center"
-        />
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Calendar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-</FrameLayout>
+        tools:context=".Calendar">
+
+        <!-- TODO: Update blank fragment layout -->
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#59AFBA"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleX="1.3"
+            android:scaleY="1.3"
+            android:src="@drawable/ic_baseline_home_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Month1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="#EB89E8"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <ImageView
+                android:id="@+id/monthpic1"
+                android:layout_width="366dp"
+                android:layout_height="120dp"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/halloween" />
+
+            <CalendarView
+                android:id="@+id/monthview1"
+                android:layout_width="wrap_content"
+                android:layout_height="310dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="128dp"
+                android:minDate="11/01/2022" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Month2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="#EEFDFF"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Month1">
+
+            <ImageView
+                android:id="@+id/monthpic2"
+                android:layout_width="366dp"
+                android:layout_height="120dp"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/calendarphoto" />
+
+            <CalendarView
+                android:id="@+id/monthview2"
+                android:layout_width="wrap_content"
+                android:layout_height="310dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="128dp"
+                android:maxDate="12/31/2022"
+                android:minDate="12/01/2022" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Month3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="#F3C8C5"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Month2">
+
+            <ImageView
+                android:id="@+id/monthpic3"
+                android:layout_width="366dp"
+                android:layout_height="120dp"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/new_year" />
+
+            <CalendarView
+                android:id="@+id/monthview3"
+                android:layout_width="wrap_content"
+                android:layout_height="310dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="128dp"
+                android:maxDate="1/31/2022"
+                android:minDate="1/01/2022" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

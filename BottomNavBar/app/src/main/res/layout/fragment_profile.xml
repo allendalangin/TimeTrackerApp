@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_primary80"
-    tools:context=".Profile">
+    android:background="#EEFDFF"
+    tools:context=".Profile" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#59AFBA"
+        android:minHeight="?attr/actionBarSize"
+        android:nestedScrollingEnabled="true"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile Fragment"
-        android:textSize="26dp"
-        android:layout_gravity="center"
-        />
-
-</FrameLayout>
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@android:color/transparent"
+        android:nestedScrollingEnabled="true"
+        android:scaleX="1.3"
+        android:scaleY="1.3"
+        android:src="@drawable/ic_baseline_home_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>
