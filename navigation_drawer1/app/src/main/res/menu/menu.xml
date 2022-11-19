@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:checked="true"
+        android:checkable="true"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:checkable="true"
+        android:title="Profile"/>
+
+    <item
+        android:id="@+id/themesFragment"
+        android:icon="@drawable/ic_baseline_brush_24"
+        android:checkable="true"
+        android:title="Themes"/>
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:checkable="true"
+        android:title="Settings"/>
+
+    <item
+        android:id="@+id/feedbackFragment"
+        android:icon="@drawable/ic_baseline_feedback_24"
+        android:checkable="true"
+        android:title="Feedback"/>
+
+    <item
+        android:id="@+id/FAQFragment"
+        android:icon="@drawable/ic_baseline_question_mark_24"
+        android:checkable="true"
+        android:title="FAQ"/>
+
+</menu>
