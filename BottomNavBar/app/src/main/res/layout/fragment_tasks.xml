@@ -10,97 +10,102 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/recyclerView2"
+    <FrameLayout
+        android:id="@+id/frame_layout_1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
-            android:id="@+id/frameLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/bg_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="bg_photo"
+                android:cropToPadding="false"
+                android:scaleType="fitStart"
+                android:src="@drawable/project_interface" />
 
-                <ImageView
-                    android:id="@+id/bg_photo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="bg_photo"
-                    android:cropToPadding="true"
-                    android:scaleType="fitStart"
-                    android:src="@drawable/project_interface" />
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
-            </androidx.cardview.widget.CardView>
-        </FrameLayout>
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="220dp"
+        android:background="#59AFBA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/frame_layout_1" />
+
+
+    <LinearLayout
+        android:id="@+id/usertab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/divider">
+
+        <ImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="145dp"
+            android:layout_height="145dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/ic_baseline_circle_56"
+            android:padding="12dp"
+            android:src="@drawable/ic_baseline_person_24" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/profile_pic"
-                android:layout_width="145dp"
-                android:layout_height="145dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginBottom="-10dp"
-                android:background="@drawable/ic_baseline_circle_56"
-                android:padding="12dp"
-                android:src="@drawable/ic_baseline_person_24" />
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bryndanwritebook"
+                android:paddingTop="24dp"
+                android:shadowColor="#353535"
+                android:shadowDx="3"
+                android:shadowDy="3"
+                android:shadowRadius="4"
+                android:text="Welcome,"
+                android:textColor="#59AFBA"
+                android:textSize="24sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/welcome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:fontFamily="@font/bryndanwritebook"
-                    android:shadowColor="#353535"
-                    android:shadowDx="3"
-                    android:shadowDy="3"
-                    android:shadowRadius="4"
-                    android:text="Welcome,"
-                    android:textColor="#59AFBA"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:fontFamily="@font/bryndanwritebook"
-                    android:shadowColor="#353535"
-                    android:shadowDx="3"
-                    android:shadowDy="3"
-                    android:shadowRadius="4"
-                    android:text="Hatdog!"
-                    android:textColor="#59AFBA"
-                    android:textSize="48sp" />
-            </LinearLayout>
-
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bryndanwritebook"
+                android:shadowColor="#353535"
+                android:shadowDx="3"
+                android:shadowDy="3"
+                android:shadowRadius="4"
+                android:text="Hatdog!"
+                android:textColor="#59AFBA"
+                android:textSize="48sp" />
         </LinearLayout>
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="220dp"
-            android:background="#59AFBA"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/frameLayout2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/taskstatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider">
 
         <Button
             android:id="@+id/all"
@@ -114,10 +119,22 @@
             android:textSize="12sp"
             android:textStyle="bold"
             app:cornerRadius="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider"
             tools:ignore="TouchTargetSizeCheck" />
 
+        <Button
+            android:id="@+id/completed"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="#59AFBA"
+            android:fontFamily="@font/bryndanwritebook"
+            android:text="Done"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/ongoing"
@@ -130,130 +147,30 @@
             android:textSize="12sp"
             android:textStyle="bold"
             app:cornerRadius="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/completed"
-            app:layout_constraintStart_toEndOf="@+id/all"
-            app:layout_constraintTop_toBottomOf="@+id/divider"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <Button
-            android:id="@+id/completed"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="24dp"
-            android:backgroundTint="#59AFBA"
-            android:fontFamily="@font/bryndanwritebook"
-            android:text="Done"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:cornerRadius="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider"
-            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/TestDay1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/bryndanwritebook"
-            android:text="Today, October 16"
-            android:textColor="#59AFBA"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ongoing" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskstatus" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="18dp"
-            android:backgroundTint="#59AFBA"
-            app:cardCornerRadius="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TestDay1">
-
-            <TextView
-                android:id="@+id/TestTask1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:fontFamily="@font/bryndanwritebook"
-                android:padding="4dp"
-                android:text="Capstone Research"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="18dp"
-            android:backgroundTint="#59AFBA"
-            app:cardCornerRadius="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2">
-
-            <TextView
-                android:id="@+id/TestTask2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bryndanwritebook"
-                android:text="Physics Seatwork"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:padding="4dp"
-                android:layout_marginStart="8dp"/>
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/TestDay2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/bryndanwritebook"
-            android:text="Tomorrow, October 17"
-            android:textColor="#59AFBA"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView3" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="18dp"
-            android:backgroundTint="#59AFBA"
-            app:cardCornerRadius="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TestDay2">
-
-            <TextView
-                android:id="@+id/TestTask3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bryndanwritebook"
-                android:text="Chemistry Seatwork"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:padding="4dp"
-                android:layout_marginStart="8dp"/>
-        </androidx.cardview.widget.CardView>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addtask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#59AFBA"
+        android:layout_margin="32dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:backgroundTint="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
