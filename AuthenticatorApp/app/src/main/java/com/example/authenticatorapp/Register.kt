@@ -8,20 +8,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 
-public class Register extends AppCompatActivity {
-    EditText mFullName,mEmail,mPassword,mPhone;
-    Button mRegisterBtn;
-    TextView mLoginBtn;
-    FirebaseAuth fAuth;
-    ProgressBar progressBar;
-
-
-
-
-
-
-
-}
 
 class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
