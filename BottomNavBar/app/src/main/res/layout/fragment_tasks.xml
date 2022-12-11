@@ -152,6 +152,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/taskView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="12dp"
@@ -162,15 +163,15 @@
         app:layout_constraintTop_toBottomOf="@+id/taskstatus" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addtask"
+        android:id="@+id/addTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#59AFBA"
         android:layout_margin="32dp"
         android:clickable="true"
-        android:src="@drawable/ic_baseline_add_24"
+        android:src="@drawable/_7_679828_white_plus_png_plus_icon_white_png_transparent_removebg_preview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="@color/white"/>
+        app:tint="@android:color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

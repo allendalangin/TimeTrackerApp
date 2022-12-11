@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEFDFF"
-    tools:context=".Profile" >
+    tools:context="com.example.misctrash.ProfileFragment" >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -68,9 +68,90 @@
                 android:fontFamily="@font/bryndanwritebook"
                 android:text="Hatdog Agamulach"
                 android:textColor="#59AFBA"
-                android:textSize="32sp" />
-        </LinearLayout>
+                android:textSize="32sp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"/>
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:fontFamily="@font/bryndanwritebook"
+                android:textSize="18sp"
+                android:backgroundTint="#59AFBA"/>
+        </LinearLayout>
     </LinearLayout>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#59AFBA"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toStartOf="@id/cardView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_user"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Task Ongoing" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#59AFBA"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView6"
+        app:layout_constraintTop_toBottomOf="@+id/profile_user">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Task Completed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15"/>
+            </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#59AFBA"
+        android:layout_margin="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/cardView6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
