@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:elevation="8dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="#59AFBA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,6 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:backgroundTint="#59AFBA"
+        android:elevation="8dp"
         android:scaleX="1.7"
         android:scaleY="1.7"
         app:layout_constraintBottom_toBottomOf="@+id/myToolbar"
@@ -28,4 +31,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_menu_24"
         tools:ignore="SpeakableTextPresentCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

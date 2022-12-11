@@ -10,8 +10,8 @@
         android:layout_width="350dp"
         android:layout_height="152dp"
         android:src="@drawable/trackabl"
-        tools:layout_editor_absoluteX="-36dp"
-        tools:layout_editor_absoluteY="39dp"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-49dp"
+        tools:layout_editor_absoluteY="41dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
