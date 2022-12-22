@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.bottomnavbar.databinding.ActivityMainBinding
+import com.google.android.gms.tasks.Task
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(Tasks())
@@ -40,5 +42,4 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
 
     }
-
 }

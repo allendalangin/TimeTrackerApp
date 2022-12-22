@@ -7,15 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.bottomnavbar.databinding.FragmentTasksBinding
+import com.google.android.gms.tasks.Task
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
+
 /**
  * A simple [Fragment] subclass.
- * Use the [Tasks.newInstance] factory method to
+ * Use the [Task.newInstance] factory method to
  * create an instance of this fragment.
  */
 class Tasks : Fragment() {
@@ -38,15 +42,17 @@ class Tasks : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tasks, container, false)
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        binding.addTask.setOnClickListener {
-            Toast.makeText()
-            Toast.makeText(getView(),"Clicked Button", Toast.LENGTH_SHORT).show()
+        binding.addTask.setOnClickListener() {
+            val toast = Toast.makeText(activity, "Hello, World!", Toast.LENGTH_SHORT)
+            toast.show()
         }
+
     }
 
     companion object {
@@ -61,7 +67,7 @@ class Tasks : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Tasks().apply {
+            com.example.bottomnavbar.Tasks().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

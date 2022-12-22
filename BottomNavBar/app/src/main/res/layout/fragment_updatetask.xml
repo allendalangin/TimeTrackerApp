@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="380dp"
     android:layout_height="600dp"
     app:cardBackgroundColor="#59AFBA"
@@ -160,5 +161,6 @@
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
         android:textColor="@color/white"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:ignore="RtlCompat" />
 </androidx.cardview.widget.CardView>
