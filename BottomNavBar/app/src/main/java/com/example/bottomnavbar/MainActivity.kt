@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.bottomnavbar.databinding.ActivityMainBinding
-import com.google.android.gms.tasks.Task
 
 class MainActivity : AppCompatActivity() {
 

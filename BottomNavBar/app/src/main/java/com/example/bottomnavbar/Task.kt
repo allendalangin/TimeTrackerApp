@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.bottomnavbar.databinding.FragmentTasksBinding
-import com.google.android.gms.tasks.Task
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,7 +20,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [Task.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Tasks : Fragment() {
+class Tasks : Fragment(){
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -41,7 +39,8 @@ class Tasks : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tasks, container, false)
+        binding = FragmentTasksBinding.inflate(inflater, container, false)
+        return binding.root
 
 
     }
@@ -49,10 +48,29 @@ class Tasks : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         binding.addTask.setOnClickListener() {
-            val toast = Toast.makeText(activity, "Hello, World!", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(activity, "Add Task Hoe", Toast.LENGTH_SHORT)
+            toast.show()
+
+            val dialog = AddTaskDialogFragment()
+            dialog.show((activity as AppCompatActivity).supportFragmentManager, "customDialog")
+
+
+        }
+
+        binding.all.setOnClickListener() {
+            val toast = Toast.makeText(activity, "All", Toast.LENGTH_SHORT)
             toast.show()
         }
 
+        binding.completed.setOnClickListener() {
+            val toast = Toast.makeText(activity, "Done", Toast.LENGTH_SHORT)
+            toast.show()
+        }
+
+        binding.ongoing.setOnClickListener() {
+            val toast = Toast.makeText(activity, "Ongoing", Toast.LENGTH_SHORT)
+            toast.show()
+        }
     }
 
     companion object {

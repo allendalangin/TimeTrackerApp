@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BryndanWriteBook">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/bryndanwritebook</item>
+    </style>
+</resources>
