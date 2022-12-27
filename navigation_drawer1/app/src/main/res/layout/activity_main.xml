@@ -7,7 +7,7 @@
     android:id="@+id/drawer"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-    tools:context="com.example.MainActivity">
+    tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

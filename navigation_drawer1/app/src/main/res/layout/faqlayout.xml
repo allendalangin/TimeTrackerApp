@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:scrollbarThumbVertical="#59AFBA">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_home_24"
+            android:backgroundTint="#59AFBA" />
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -18,256 +29,250 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
+        </RelativeLayout>
+
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#59AFBA"
-            app:cardCornerRadius="12dp">
+            android:backgroundTint="#59AFBA">
 
             <TextView
+                tools:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bryndanwritebook"
-                android:text="Question 1"
+                android:text="What is a to do list and how do you use it?"
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
+                android:textSize="24sp" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#9AD5DF"
-            app:cardCornerRadius="12dp">
+            android:backgroundTint="#9AD5DF">
 
             <TextView
+                tools:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bryndanwritebook"
-                android:text="Answer 1"
+                android:text="- By prioritising the tasks in the list you plan the order in which you're going to do them."
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
+                android:textSize="24sp" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#59AFBA"
-            app:cardCornerRadius="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bryndanwritebook"
-                android:text="Question 2"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#9AD5DF"
-            app:cardCornerRadius="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bryndanwritebook"
-                android:text="Answer 2"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#59AFBA"
-            app:cardCornerRadius="12dp">
+            android:backgroundTint="#59AFBA">
 
             <TextView
+                tools:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bryndanwritebook"
-                android:text="Question 3"
+                android:text="How many tasks can you put on a to do list?"
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
+                android:textSize="24sp" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#9AD5DF"
-            app:cardCornerRadius="12dp">
+            android:backgroundTint="#9AD5DF">
 
             <TextView
+                tools:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bryndanwritebook"
-                android:text="Answer 3"
+                android:text="- If you need to have more than 3 items, try to include no more than 1 big task"
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
+                android:textSize="24sp" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#59AFBA"
-            app:cardCornerRadius="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bryndanwritebook"
-                android:text="Question 4"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#9AD5DF"
-            app:cardCornerRadius="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bryndanwritebook"
-                android:text="Answer 4"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#59AFBA"
-            app:cardCornerRadius="12dp">
+            android:backgroundTint="#59AFBA">
 
             <TextView
+                tools:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bryndanwritebook"
-                android:text="Question 5"
+                android:text="How do I create a to do list on my phone?"
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
+                android:textSize="24sp" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#9AD5DF"
-            app:cardCornerRadius="12dp">
+            android:backgroundTint="#9AD5DF">
 
             <TextView
+                tools:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bryndanwritebook"
-                android:text="Answer 5"
+                android:text="- To do list apps are the best ways to create a to do list on your phone."
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
+                android:textSize="24sp" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#59AFBA"
-            app:cardCornerRadius="12dp">
+            android:backgroundTint="#59AFBA">
 
             <TextView
+                tools:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bryndanwritebook"
-                android:text="Question 1"
+                android:text="What is the purpose of a to-do-list?"
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
+                android:textSize="24sp" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#9AD5DF"
-            app:cardCornerRadius="12dp">
+            android:backgroundTint="#9AD5DF">
 
             <TextView
+                tools:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bryndanwritebook"
-                android:text="Answer 1"
+                android:text="- The main purpose of a to do list is to provide yourself with a list of your priorities in order to ensure that you don't forget anything and are able to effectively plan out your tasks so that they are all accomplished in the correct time frame. A well maintained to do list will set your mind at ease since you will always have a clear picture of what you need to get done.
+"
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                tools:layout_margin="8dp" />
+                android:textSize="24sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#59AFBA">
+
+            <TextView
+                tools:layout_margin="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bryndanwritebook"
+                android:text="Why is a to-do list important?"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#9AD5DF">
+
+            <TextView
+                tools:layout_margin="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bryndanwritebook"
+                android:text="- A to do list is important because it keeps your tasks and obligations in order. An organized list makes things more manageable and keeps you mentally focused on the tasks at hand."
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#59AFBA">
+
+            <TextView
+                tools:layout_margin="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bryndanwritebook"
+                android:text="When should you make a to-do list?"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#9AD5DF">
+
+            <TextView
+                tools:layout_margin="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bryndanwritebook"
+                android:text="The best time to make a daily to do list is either the night before, or first thing in the morning. The biggest benefit of a well organized to do list is the peace of mind that comes with having a plan in place. Going to bed with a plan for the next day in place can lead to better sleep. Making a list first thing in the morning will give you a plan for a successful day."
+                android:textColor="@color/white"
+                android:textSize="24sp" />
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#59AFBA"
-        android:scaleX="1.3"
-        android:scaleY="1.3"
-        app:srcCompat="@drawable/ic_baseline_home_24" />
-</RelativeLayout>
+
+</ScrollView>
