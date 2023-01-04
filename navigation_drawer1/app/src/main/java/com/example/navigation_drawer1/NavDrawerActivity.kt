@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         navigationView = findViewById(R.id.navigationView)
 
         navController = findNavController(R.id.fragmentContainerView)
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.Home, R.id.profileFragment, R.id.settingsFragment,
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.profileFragment, R.id.settingsFragment,
         R.id.themesFragment, R.id.feedbackFragment, R.id.FAQFragment))
         setupActionBarWithNavController(navController, drawerLayout)
         navigationView.setupWithNavController(navController)
