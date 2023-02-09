@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.BottomNavBar.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#59AFBA"
+            app:popupTheme="@style/Theme.BottomNavBar.PopupOverlay">
+
+            <ImageButton
+                android:id="@+id/closeTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#59AFBA"
+                android:scaleX="1.3"
+                android:scaleY="1.3"
+                android:src="@drawable/ic_baseline_close_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/bryndanwritebook"
+                android:text="New Task"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <ImageButton
+                android:id="@+id/saveTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="#59AFBA"
+                android:paddingEnd="24dp"
+                android:scaleX="1.3"
+                android:scaleY="1.3"
+                android:src="@drawable/ic_baseline_check_24" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:fontFamily="@font/bryndanwritebook"
+            android:text="Task"
+            android:textColor="#59AFBA"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/taskInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="3"
+            android:alpha="0.7"
+            android:backgroundTint="#9AD5DF"
+            android:hint="Task"
+            android:inputType="text"
+            android:textAppearance="@style/BryndanWriteBook"
+            android:textColor="#59AFBA"
+            android:textColorHint="#9AD5DF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:fontFamily="@font/bryndanwritebook"
+            android:text="Description"
+            android:textColor="#59AFBA"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/descInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="3"
+            android:alpha="0.7"
+            android:backgroundTint="#9AD5DF"
+            android:hint="Description"
+            android:textAppearance="@style/BryndanWriteBook"
+            android:textColor="#59AFBA"
+            android:textColorHint="#9AD5DF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/userTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:fontFamily="@font/bryndanwritebook"
+            android:text="Start Time"
+            android:textColor="#59AFBA"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/startDateView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_weight="7"
+                android:fontFamily="@font/bryndanwritebook"
+                android:gravity="center_horizontal"
+                android:text="Start Date"
+                android:textColor="#59AFBA"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/startTimeView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_weight="7"
+                android:fontFamily="@font/bryndanwritebook"
+                android:gravity="center_horizontal"
+                android:text="Start Time"
+                android:textColor="#59AFBA"
+                android:textSize="32sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/bryndanwritebook"
+            android:text="End Time"
+            android:textColor="#59AFBA"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/endDateView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_weight="7"
+                android:fontFamily="@font/bryndanwritebook"
+                android:gravity="center_horizontal"
+                android:text="End Date"
+                android:textColor="#59AFBA"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/endTimeView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_weight="7"
+                android:fontFamily="@font/bryndanwritebook"
+                android:gravity="center_horizontal"
+                android:text="End Time"
+                android:textColor="#59AFBA"
+                android:textSize="32sp" />
+    </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

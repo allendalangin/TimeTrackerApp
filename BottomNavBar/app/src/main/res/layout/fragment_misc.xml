@@ -102,6 +102,54 @@
                 android:textSize="16sp" />
         </androidx.cardview.widget.CardView>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@android:drawable/ic_dialog_email" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="TimePickerDialog(
+                this,
+                timePicker,
+                taskCalendar.get(java.util.Calendar.HOUR),
+                taskCalendar.get(java.util.Calendar.MINUTE),
+                false
+            ).show()"/>
+
+        <EditText
+            android:id="@+id/startDateInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="3"
+            android:alpha="0.7"
+            android:backgroundTint="#9AD5DF"
+            android:hint="StartTime"
+            android:textAppearance="@style/BryndanWriteBook"
+            android:textColor="#59AFBA"
+            android:textColorHint="#9AD5DF"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/startDateChange"
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:layout_margin="12dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#59AFBA"
+            android:fontFamily="@font/bryndanwritebook"
+            android:text="Change"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
     </LinearLayout>
 
 </FrameLayout>

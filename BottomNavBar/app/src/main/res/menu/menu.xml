@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Tasks"
+        android:id="@+id/tasks"
+        android:icon="@drawable/ic_baseline_assignment_24"
+        android:checked="true"
+        android:checkable="true"
+        />
+    <item android:title="Calendar"
+        android:id="@+id/calendar"
+        android:icon="@drawable/ic_baseline_calendar_month_24"
+        android:checkable="true"
+        />
+    <item android:title="Profile"
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:checkable="true"
+        />
+
+    <item
+        android:id="@+id/themes"
+        android:icon="@drawable/ic_baseline_brush_24"
+        android:checkable="true"
+        android:title="Themes" />
+
+    <item
+        android:id="@+id/guide"
+        android:icon="@drawable/ic_baseline_library_books_24"
+        android:checked="false"
+        android:checkable="true"
+        android:title="Guide" />
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_baseline_logout_24"
+        android:checked="false"
+        android:checkable="true"
+        android:title="Sign Out" />
+
+</menu>

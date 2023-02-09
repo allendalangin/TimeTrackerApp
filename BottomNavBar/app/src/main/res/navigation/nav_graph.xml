@@ -3,26 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/id_themes_fragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.bottomnavbar.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first" >
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
+        android:id="@+id/id_guide_fragment"
+        android:name="com.example.bottomnavbar.Fragments.Guide"
+        android:label="Guide"
+        tools:layout="@layout/fragment_guide" />
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.bottomnavbar.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second" >
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        android:id="@+id/id_themes_fragment"
+        android:name="com.example.bottomnavbar.Fragments.Themes"
+        android:label="Themes"
+        tools:layout="@layout/fragment_themes" />
+    <fragment
+        android:id="@+id/tasks3"
+        android:name="com.example.bottomnavbar.Tasks"
+        android:label="Tasks" />
+    <fragment
+        android:id="@+id/profile2"
+        android:name="com.example.bottomnavbar.Profile"
+        android:label="Profile" />
+    <fragment
+        android:id="@+id/calendar3"
+        android:name="com.example.bottomnavbar.Calendar"
+        android:label="Calendar" />
 </navigation>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/trackabl_bg">
+
+    <ImageView
+        android:id="@+id/trackabl_logo"
+        android:layout_width="322dp"
+        android:layout_height="227dp"
+        android:src="@drawable/trackabl_logo"
+        tools:layout_editor_absoluteX="-8dp"
+        tools:layout_editor_absoluteY="-19dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

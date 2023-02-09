@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Task"
@@ -28,7 +29,7 @@
                 android:contentDescription="bg_photo"
                 android:cropToPadding="false"
                 android:scaleType="fitStart"
-                android:src="@drawable/project_interface" />
+                android:src="@drawable/background" />
 
         </androidx.cardview.widget.CardView>
     </FrameLayout>
@@ -49,10 +50,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_marginBottom="18dp"
         app:layout_constraintBottom_toBottomOf="@+id/divider">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_pic"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="@color/main_blue"
+            app:strokeWidth="1dp"
             android:layout_width="145dp"
             android:layout_height="145dp"
             android:layout_marginStart="4dp"
@@ -64,7 +69,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="bottom">
 
             <TextView
                 android:id="@+id/welcome"
@@ -89,9 +95,8 @@
                 android:shadowDx="3"
                 android:shadowDy="3"
                 android:shadowRadius="4"
-                android:text="Hatdog!"
                 android:textColor="#59AFBA"
-                android:textSize="48sp" />
+                android:textSize="36sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -152,11 +157,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/taskView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
+        android:nestedScrollingEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskstatus" />
