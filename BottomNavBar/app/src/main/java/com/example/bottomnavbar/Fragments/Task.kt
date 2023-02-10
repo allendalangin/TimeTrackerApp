@@ -3,32 +3,30 @@ package com.example.bottomnavbar.Fragments
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavbar.Adapter.TaskAdapter
 import com.example.bottomnavbar.AddTaskActivity
-import com.example.bottomnavbar.Authentication.Login
 import com.example.bottomnavbar.Model.AddTaskModel
 import com.example.bottomnavbar.Model.AddTaskViewModel
-import com.example.bottomnavbar.Model.UserModel
 import com.example.bottomnavbar.R
-import com.example.bottomnavbar.UpdateTaskActivity
+import com.example.bottomnavbar.SwipeGesture
 import com.example.bottomnavbar.databinding.FragmentTasksBinding
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
-import com.google.firebase.auth.FirebaseUser as FirebaseUser1
 
 
 class Tasks : Fragment(){
@@ -85,6 +83,7 @@ class Tasks : Fragment(){
                 }
             })
 
+        swipeToGesture(taskRecyclerView)
 
 
         binding.all.setOnClickListener() {
@@ -108,4 +107,65 @@ class Tasks : Fragment(){
             activity?.startActivity(intent)
         }
     }
+
+    private fun swipeToGesture(taskRecyclerView: RecyclerView) {
+        val swipeGesture=object : SwipeGesture(requireContext()){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position=viewHolder.adapterPosition
+                var actionBtnTapped = false
+                try {
+                    when(direction){
+                        ItemTouchHelper.LEFT->{
+                            val deleteItem= taskList[position]
+                            taskList.removeAt(position)
+                            taskAdapter.notifyItemRemoved(position)
+
+                            val database = FirebaseDatabase.getInstance()
+                            val taskId = deleteItem.taskId
+                            val ref = database.getReference("Task")
+                            ref.child(taskId!!).removeValue()
+
+                            val snackBar = Snackbar.make(
+                                taskRecyclerView, "Item Deleted", Snackbar.LENGTH_LONG
+                            ).addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                                override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                                    super.onDismissed(transientBottomBar, event)
+                                }
+                                override fun onShown(transientBottomBar: Snackbar?) {
+                                    transientBottomBar?.setAction("UNDO") {
+                                        taskList.add(position,deleteItem)
+                                        taskAdapter.notifyItemInserted(position)
+                                        actionBtnTapped = true
+                                    }
+                                    super.onShown(transientBottomBar)
+                                }
+                            }).apply {
+                                animationMode = Snackbar.ANIMATION_MODE_FADE
+
+                            }
+                            snackBar.setActionTextColor(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.red
+                                )
+                            )
+                            snackBar.show()
+                        }
+
+
+
+                    }
+                }
+                catch (e:Exception){
+
+                    Toast.makeText(requireContext(), e.message, Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        }
+        val touchHelper= ItemTouchHelper(swipeGesture)
+        touchHelper.attachToRecyclerView(taskRecyclerView)
+
+    }
+
 }

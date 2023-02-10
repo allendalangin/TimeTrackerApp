@@ -2,6 +2,7 @@ package com.example.bottomnavbar
 
 import android.app.*
 import android.app.Notification
+import android.app.PendingIntent.FLAG_MUTABLE
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -9,7 +10,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import com.example.bottomnavbar.Alarm.AlarmReceiver
+import com.example.bottomnavbar.Alarm.MainActivity
 import com.example.bottomnavbar.Model.AddTaskModel
 import com.example.bottomnavbar.databinding.ActivityNewTaskBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -120,47 +122,27 @@ class AddTaskActivity: AppCompatActivity() {
                 else ->
                     database.setValue(Task).addOnSuccessListener {
 
+                        val intent = Intent(applicationContext, Notification::class.java)
+                        intent.putExtra("titleExtra", task)
+                        intent.putExtra("messageExtra", description)
+
+                        val pendingIntent = PendingIntent.getBroadcast(
+                            applicationContext,
+                            notificationID,
+                            intent,
+                            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+                        )
+
+                        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                        alarmManager.setExactAndAllowWhileIdle(
+                            AlarmManager.RTC_WAKEUP,
+                            startCalendar.timeInMillis,
+                            pendingIntent
+                        )
 
                     this.binding.taskInput.text.clear()
                     this.binding.descInput.text.clear()
                     Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show()
-
-                    val intent = Intent(applicationContext, Notification::class.java)
-                    val title = binding.taskInput.text.toString()
-                    val message = binding.descInput.text.toString()
-                    intent.putExtra(titleExtra, title)
-                    intent.putExtra(messageExtra, message)
-
-                    val startPendingIntent = PendingIntent.getBroadcast(
-                        applicationContext,
-                        notificationID,
-                        intent,
-                        PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-                    )
-
-                    val startAlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-                    val startTime = startCalendar.timeInMillis
-                    startAlarmManager.setExactAndAllowWhileIdle(
-                        AlarmManager.RTC_WAKEUP,
-                        startTime,
-                        startPendingIntent
-                    )
-
-                    val endPendingIntent = PendingIntent.getBroadcast(
-                        applicationContext,
-                        notificationID,
-                        intent,
-                        PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-                    )
-
-                    val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-                    val endTime = startCalendar.timeInMillis
-                    alarmManager.setExactAndAllowWhileIdle(
-                        AlarmManager.RTC_WAKEUP,
-                        endTime,
-                        endPendingIntent
-                    )
-
 
                     this.startActivity(Intent(this, NavDrawerActivity::class.java))
 
@@ -237,7 +219,6 @@ class AddTaskActivity: AppCompatActivity() {
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)
     }
-
 
 }
 

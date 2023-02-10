@@ -16,7 +16,7 @@ class Notification : BroadcastReceiver()
     override fun onReceive(context: Context, intent: Intent)
     {
         val notification = NotificationCompat.Builder(context, channelID)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(R.drawable.project_interface)
             .setContentTitle(intent.getStringExtra(titleExtra))
             .setContentText(intent.getStringExtra(messageExtra))
             .build()

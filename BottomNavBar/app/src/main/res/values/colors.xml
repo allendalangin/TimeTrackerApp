@@ -17,4 +17,6 @@
     <color name="light_pink">#F3C8C5</color>
     <color name="gray">#888</color>
     <color name="blue">#0000FF</color>
+    <color name="red">#FF0000</color>
+    <color name="orangeRed">#FF3D00</color>
 </resources>

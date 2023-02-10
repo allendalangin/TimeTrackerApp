@@ -16,7 +16,8 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="24dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/bryndanwritebook"/>
 
     </androidx.cardview.widget.CardView>
 
@@ -48,8 +49,6 @@
                 android:layout_marginLeft="8dp" />
 
         </LinearLayout>
-
-
 
     </androidx.cardview.widget.CardView>
 

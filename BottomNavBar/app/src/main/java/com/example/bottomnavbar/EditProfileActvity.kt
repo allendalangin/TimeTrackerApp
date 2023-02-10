@@ -7,23 +7,21 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import com.example.bottomnavbar.Fragments.Profile
 import com.example.bottomnavbar.databinding.PersonalizationBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.firestore.core.View
 import java.io.ByteArrayOutputStream
-import java.util.Base64
 
 class EditProfileActvity: AppCompatActivity() {
 
     var sImage: String? = ""
     var sBackgroundImage: String? = ""
     private lateinit var binding: PersonalizationBinding
-    private lateinit var database: DatabaseReference
-    private lateinit var fAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,9 +44,13 @@ class EditProfileActvity: AppCompatActivity() {
         })
 
         binding.closeTask.setOnClickListener() {
-            val name = sBackgroundImage.toString()
-            Toast.makeText(this, name, Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, NavDrawerActivity::class.java)
+            intent.putExtra("data",1)
+            startActivity(intent)
+
         }
+
 
         binding.saveProfile.setOnClickListener(){
             val name = binding.nameInput.text.toString()
@@ -61,7 +63,9 @@ class EditProfileActvity: AppCompatActivity() {
 
                     Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
 
-                    this.startActivity(Intent(this, NavDrawerActivity::class.java))
+                    val intent = Intent(this, NavDrawerActivity::class.java)
+                    intent.putExtra("data",1)
+                    startActivity(intent)
         }
             }
         }

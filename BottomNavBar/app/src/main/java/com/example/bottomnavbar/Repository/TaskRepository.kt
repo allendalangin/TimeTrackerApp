@@ -2,11 +2,13 @@ package com.example.bottomnavbar.Repository
 
 import androidx.lifecycle.MutableLiveData
 import com.example.bottomnavbar.Model.AddTaskModel
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class TaskRepository {
 
     private val databaseReference : DatabaseReference = FirebaseDatabase.getInstance().getReference("Task")
+    private val fAuth : FirebaseAuth = FirebaseAuth.getInstance()
 
     @Volatile private var INSTANCE : TaskRepository?= null
 
@@ -23,8 +25,9 @@ class TaskRepository {
 
 
     fun loadUsers(taskList : MutableLiveData<List<AddTaskModel>>){
-
-        databaseReference.addValueEventListener(object : ValueEventListener{
+        val uid = fAuth.currentUser?.uid.toString()
+        val query = databaseReference.orderByChild("taskOwner").equalTo(uid)
+        query.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 try {
@@ -53,6 +56,24 @@ class TaskRepository {
         })
 
 
+    }
+
+    fun getFilteredData(userId: String, callback: (List<AddTaskModel>) -> Unit) {
+        val query = databaseReference.child("taskId").orderByChild("uid").equalTo(userId)
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val dataList = mutableListOf<AddTaskModel>()
+                dataSnapshot.children.forEach { snapshot ->
+                    val data = snapshot.getValue(AddTaskModel::class.java)
+                    dataList.add(data!!)
+                }
+                callback(dataList)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle errors
+            }
+        })
     }
 
 }

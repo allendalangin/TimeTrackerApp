@@ -108,7 +108,9 @@ public class Register extends AppCompatActivity {
 
                             Toast.makeText(Register.this, "User Created", Toast.LENGTH_SHORT).show();
 
-                            startActivity(new Intent(getApplicationContext(), NavDrawerActivity.class));
+                            Intent intent = new Intent(getApplicationContext(), NavDrawerActivity.class);
+                            intent.putExtra("data", 0);
+                            startActivity(intent);
                         }else {
                             Toast.makeText(Register.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);

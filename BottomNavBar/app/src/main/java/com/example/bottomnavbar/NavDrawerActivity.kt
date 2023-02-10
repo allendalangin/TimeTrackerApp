@@ -32,11 +32,26 @@ class NavDrawerActivity : AppCompatActivity() {
         val navigationView : NavigationView = findViewById(R.id.navigationView)
         toggle = ActionBarDrawerToggle(this,drawer,toolbar,R.string.open,R.string.close)
         drawer.addDrawerListener(toggle)
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_delete_24)
         toggle.syncState()
 
-        replaceFragment(Tasks())
+        val fragmentToInflate = intent.getIntExtra("data",0)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        var fragment: Fragment? = null
+        when (fragmentToInflate) {
+            0 -> fragment = Tasks()
+            1 -> fragment = Profile()
+        }
+
+
+        fragment?.let {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.navContainer, it)
+                .commit()
+        }
+
 
         navigationView.setNavigationItemSelectedListener {
 
@@ -45,15 +60,14 @@ class NavDrawerActivity : AppCompatActivity() {
             when(it.itemId){
 
                 R.id.tasks -> replaceFragment(Tasks())
-                R.id.calendar -> this.startActivity(Intent(this, CalendarActivity::class.java))
+                R.id.calendar -> replaceFragment(Calendar())
                 R.id.profile -> replaceFragment(Profile())
-                R.id.themes -> replaceFragment(Themes())
+                R.id.themes -> toThemes()
                 R.id.guide -> replaceFragment(Guide())
                 R.id.logout -> signOut()
             }
 
             true
-
 
         }
 
@@ -82,5 +96,11 @@ class NavDrawerActivity : AppCompatActivity() {
     private fun signOut () {
         FirebaseAuth.getInstance().signOut()
         startActivity(Intent(this, Login::class.java))
+    }
+
+    private fun toThemes () {
+        val dialog = Themes()
+        dialog.show((this).supportFragmentManager, "customDialog")
+        drawer.closeDrawers()
     }
 }

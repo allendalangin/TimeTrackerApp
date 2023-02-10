@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#a6bf88"
+    android:orientation="vertical" >
+
+	<ImageView
+		android:id="@+id/headerImg"
+		android:layout_width="75dp"
+		android:layout_height="75dp"
+		android:layout_gravity="center"
+		android:src="@drawable/project_interface"
+		android:layout_marginTop="20dp" />
+
+	<TextView
+		android:id="@+id/header"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="My Alarm"
+		android:textColor="#1f7a5a"
+		android:textSize="35sp"
+		android:layout_marginBottom="5dp"
+		android:textAllCaps="true" />
+
+	<Button
+        android:id="@+id/setAlarmButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Start"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:textColor="#238a66"
+	    android:textSize="100sp"
+	    android:id="@+id/msg1"/>
+
+    <Button
+        android:id="@+id/cancelAlarmButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop"/>
+
+    <TextView
+		android:id="@+id/alarmAlertTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:textColor="#483d8b"
+	    android:textSize="50sp"
+		android:layout_marginLeft="7dp"
+		android:layout_marginRight="7dp" />
+</LinearLayout>

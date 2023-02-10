@@ -1,5 +1,7 @@
 package com.example.bottomnavbar
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bottomnavbar.Adapter.CalendarAdapter.OnItemListener
 import android.widget.TextView
@@ -8,6 +10,7 @@ import androidx.annotation.RequiresApi
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import com.example.bottomnavbar.Adapter.CalendarAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import android.widget.Toast
@@ -20,10 +23,18 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
     private var monthYearText: TextView? = null
     private var calendarRecyclerView: RecyclerView? = null
     private var selectedDate: LocalDate? = null
+
+    @SuppressLint("MissingInflatedId")
     @RequiresApi(api = Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calendar)
+        setContentView(R.layout.activity_main)
+        val backToNav = findViewById<ImageButton>(R.id.backToNav)
+        backToNav.setOnClickListener() {
+            val intent = Intent (this, NavDrawerActivity::class.java)
+            this.startActivity(intent)
+        }
+
         initWidgets()
         selectedDate = LocalDate.now()
         setMonthView()

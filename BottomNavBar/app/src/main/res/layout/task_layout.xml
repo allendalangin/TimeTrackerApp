@@ -6,7 +6,6 @@
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
     android:backgroundTint="#59AFBA"
-    android:onClick="onItemClick"
     app:cardCornerRadius="16dp"
     app:cardElevation="4dp">
 
