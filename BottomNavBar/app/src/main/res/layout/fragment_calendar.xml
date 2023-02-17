@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#59AFBA"
+        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
             android:layout_marginTop="6dp"
             android:fontFamily="@font/bryndanwritebook"
             android:text="November 2022"
-            android:textColor="#59AFBA"
+            android:textColor="?attr/colorPrimary"
             android:textSize="30sp" />
 
         <ImageButton
@@ -79,7 +79,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="-12dp"
-        android:backgroundTint="#59AFBA"
+        android:backgroundTint="?attr/colorPrimary"
         app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -10,7 +10,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#59AFBA"
+        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:nestedScrollingEnabled="true"
         android:theme="?attr/actionBarTheme"

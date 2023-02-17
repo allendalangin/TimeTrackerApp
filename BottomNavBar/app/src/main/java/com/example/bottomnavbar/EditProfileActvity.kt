@@ -3,8 +3,11 @@ package com.example.bottomnavbar
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
+import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -12,28 +15,32 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.bottomnavbar.Fragments.Profile
+import com.example.bottomnavbar.Model.UserModel
 import com.example.bottomnavbar.databinding.PersonalizationBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 
 class EditProfileActvity: AppCompatActivity() {
 
-    var sImage: String? = ""
-    var sBackgroundImage: String? = ""
+    private var sImage: String = ""
+    private var sBackgroundImage: String = ""
     private lateinit var binding: PersonalizationBinding
+    private val root = FirebaseDatabase.getInstance().getReference("User")
+    private val reference = FirebaseStorage.getInstance().reference
+    private val fAuth = FirebaseAuth.getInstance().currentUser
+    private var imageUri: Uri? = null
+    private var imageBgUri: Uri? = null
+    private val userId = fAuth?.uid
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.binding = PersonalizationBinding.inflate(layoutInflater)
         setContentView(this.binding.root)
 
-        val database = FirebaseDatabase.getInstance()
-        val fAuth = FirebaseAuth.getInstance().currentUser
-        val userId = fAuth?.uid
-        val ref = database.getReference("User")
 
-        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+        root.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val name = dataSnapshot.child(userId!!).child("name").getValue(String::class.java)
                 binding.nameInput.setText(name)
@@ -42,6 +49,25 @@ class EditProfileActvity: AppCompatActivity() {
             override fun onCancelled(error: DatabaseError) {
             }
         })
+
+        binding.uploadBtn.setOnClickListener() {
+
+            val galleryIntent = Intent()
+            galleryIntent.action = Intent.ACTION_GET_CONTENT
+            galleryIntent.type = "image/*"
+            startActivityForResult(galleryIntent, 2)
+
+        }
+
+        binding.uploadBackgroundBtn.setOnClickListener() {
+
+            val galleryIntent = Intent()
+            galleryIntent.action = Intent.ACTION_GET_CONTENT
+            galleryIntent.type = "image/*"
+            startActivityForResult(galleryIntent, 3)
+
+        }
+
 
         binding.closeTask.setOnClickListener() {
 
@@ -56,10 +82,11 @@ class EditProfileActvity: AppCompatActivity() {
             val name = binding.nameInput.text.toString()
             when {
                 TextUtils.isEmpty(name) -> Toast.makeText(this, "Please enter a name.", Toast.LENGTH_SHORT).show()
+                imageUri == null ->  Toast.makeText(this, "Please Select Image", Toast.LENGTH_SHORT).show()
                 else -> {
-                    ref.child(userId!!).child("name").setValue(name)
-                    ref.child(userId!!).child("profileImg").setValue(sImage)
-                    ref.child(userId!!).child("backgroundImg").setValue(sBackgroundImage)
+                    root.child(userId!!).child("name").setValue(name)
+                    uploadToFirebase(imageUri!!)
+                    uploadBgToFirebase(imageBgUri!!)
 
                     Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
 
@@ -123,5 +150,49 @@ class EditProfileActvity: AppCompatActivity() {
         var myfileintent = Intent(Intent.ACTION_GET_CONTENT)
         myfileintent.setType("image/*")
         BackgroundActivityResultLauncher.launch(myfileintent)
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
+            imageUri = data.data
+            binding.imageView.setImageURI(imageUri)
+        } else   if (requestCode == 3 && resultCode == RESULT_OK && data != null) {
+            imageBgUri = data.data
+            binding.backgroundView.setImageURI(imageBgUri)
+        }
+    }
+
+    private fun uploadToFirebase(uri: Uri) {
+        val fileRef =
+            reference.child( System.currentTimeMillis().toString() + "." + getFileExtension(uri))
+        fileRef.putFile(uri).addOnSuccessListener {
+            fileRef.downloadUrl.addOnSuccessListener { uri ->
+                val img = uri.toString()
+                root.child(userId!!).child("profileImg").setValue(img)
+            }
+        } .addOnFailureListener {
+                Toast.makeText(this, "Uploading Failed !!", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun uploadBgToFirebase(uri: Uri) {
+        val fileRef =
+            reference.child("BG " + System.currentTimeMillis().toString() + "." + getFileExtension(uri))
+        fileRef.putFile(uri).addOnSuccessListener {
+            fileRef.downloadUrl.addOnSuccessListener { uri ->
+                val img = uri.toString()
+                root.child(userId!!).child("backgroundImg").setValue(img)
+            }
+        } .addOnFailureListener {
+            Toast.makeText(this, "Uploading Failed !!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun getFileExtension(mUri: Uri): String? {
+        val cr = contentResolver
+        val mime = MimeTypeMap.getSingleton()
+        return mime.getExtensionFromMimeType(cr.getType(mUri))
     }
 }

@@ -9,7 +9,6 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.BottomNavBar.AppBarOverlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,14 +17,14 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#59AFBA"
+            android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.BottomNavBar.PopupOverlay">
 
             <ImageButton
                 android:id="@+id/closeTask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#59AFBA"
+                android:backgroundTint="?attr/colorPrimary"
                 android:scaleX="1.3"
                 android:scaleY="1.3"
                 android:src="@drawable/ic_baseline_close_24" />
@@ -45,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:backgroundTint="#59AFBA"
+                android:backgroundTint="?attr/colorPrimary"
                 android:paddingEnd="24dp"
                 android:scaleX="1.3"
                 android:scaleY="1.3"
@@ -77,7 +76,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:fontFamily="@font/bryndanwritebook"
                 android:text="Username"
-                android:textColor="#59AFBA"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="24sp" />
 
             <EditText
@@ -88,12 +87,12 @@
                 android:layout_marginEnd="16dp"
                 android:layout_weight="3"
                 android:alpha="0.7"
-                android:backgroundTint="#9AD5DF"
+                android:backgroundTint="?attr/colorPrimaryVariant"
                 android:hint="Username"
                 android:inputType="text"
                 android:textAppearance="@style/BryndanWriteBook"
-                android:textColor="#59AFBA"
-                android:textColorHint="#9AD5DF"
+                android:textColor="?attr/colorPrimary"
+                android:textColorHint="?attr/colorPrimaryVariant"
                 android:textSize="24sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -154,10 +153,9 @@
                         android:id="@+id/uploadBtn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/main_blue"
+                        android:background="?attr/colorPrimary"
                         android:fontFamily="@font/bryndanwritebook"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="insert_Img"
                         android:text="Upload Profile Image"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
@@ -192,7 +190,7 @@
                             android:id="@+id/backgroundView"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:scaleType="fitXY"
+                            android:scaleType="centerCrop"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
@@ -228,11 +226,10 @@
                         android:id="@+id/uploadBackgroundBtn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/main_blue"
+                        android:background="?attr/colorPrimary"
                         android:fontFamily="@font/bryndanwritebook"
                         android:foreground="?attr/selectableItemBackground"
                         android:text="Upload Background"
-                        android:onClick="insert_BackgroundImg"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="18sp"

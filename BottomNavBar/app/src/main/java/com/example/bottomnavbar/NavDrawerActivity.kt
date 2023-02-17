@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.appcompat.widget.Toolbar
 import com.example.bottomnavbar.Authentication.Login
 import com.example.bottomnavbar.Fragments.*
 import com.example.bottomnavbar.databinding.ActivityNavdrawerBinding
@@ -21,6 +21,10 @@ class NavDrawerActivity : AppCompatActivity() {
     lateinit var drawer: DrawerLayout
     private lateinit var binding: ActivityNavdrawerBinding
     lateinit var toolbar : androidx.appcompat.widget.Toolbar
+    override fun onBackPressed() {
+        // do nothing
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +36,11 @@ class NavDrawerActivity : AppCompatActivity() {
         val navigationView : NavigationView = findViewById(R.id.navigationView)
         toggle = ActionBarDrawerToggle(this,drawer,toolbar,R.string.open,R.string.close)
         drawer.addDrawerListener(toggle)
+        toggle.syncState()
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_delete_24)
-        toggle.syncState()
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_dehaze_24)
+
 
         val fragmentToInflate = intent.getIntExtra("data",0)
 
@@ -62,7 +67,6 @@ class NavDrawerActivity : AppCompatActivity() {
                 R.id.tasks -> replaceFragment(Tasks())
                 R.id.calendar -> replaceFragment(Calendar())
                 R.id.profile -> replaceFragment(Profile())
-                R.id.themes -> toThemes()
                 R.id.guide -> replaceFragment(Guide())
                 R.id.logout -> signOut()
             }
@@ -98,9 +102,4 @@ class NavDrawerActivity : AppCompatActivity() {
         startActivity(Intent(this, Login::class.java))
     }
 
-    private fun toThemes () {
-        val dialog = Themes()
-        dialog.show((this).supportFragmentManager, "customDialog")
-        drawer.closeDrawers()
-    }
 }

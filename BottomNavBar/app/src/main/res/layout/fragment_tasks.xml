@@ -4,51 +4,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Task"
+    android:backgroundTint="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#EEFDFF">
+    android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
-
     <FrameLayout
-        android:id="@+id/frame_layout_1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:id="@+id/card"
+        android:layout_width="wrap_content"
+        android:layout_height="240dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/bg_photo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:contentDescription="bg_photo"
-                android:cropToPadding="false"
-                android:scaleType="fitStart"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
                 android:src="@drawable/background" />
 
         </androidx.cardview.widget.CardView>
     </FrameLayout>
-
     <View
         android:id="@+id/divider"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginTop="220dp"
-        android:background="#59AFBA"
+        android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/frame_layout_1" />
+        app:layout_constraintTop_toTopOf="@+id/card" />
 
 
     <LinearLayout
         android:id="@+id/usertab"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="18dp"
         app:layout_constraintBottom_toBottomOf="@+id/divider">
@@ -56,7 +55,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_pic"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-            app:strokeColor="@color/main_blue"
+            app:strokeColor="?attr/colorPrimary"
             app:strokeWidth="1dp"
             android:layout_width="145dp"
             android:layout_height="145dp"
@@ -83,7 +82,7 @@
                 android:shadowDy="3"
                 android:shadowRadius="4"
                 android:text="Welcome,"
-                android:textColor="#59AFBA"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="24sp" />
 
             <TextView
@@ -95,7 +94,7 @@
                 android:shadowDx="3"
                 android:shadowDy="3"
                 android:shadowRadius="4"
-                android:textColor="#59AFBA"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="36sp" />
         </LinearLayout>
 
@@ -110,48 +109,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider">
-
-        <Button
-            android:id="@+id/all"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="#59AFBA"
-            android:fontFamily="@font/bryndanwritebook"
-            android:text="All"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:cornerRadius="16dp"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <Button
-            android:id="@+id/completed"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="24dp"
-            android:backgroundTint="#59AFBA"
-            android:fontFamily="@font/bryndanwritebook"
-            android:text="Done"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:cornerRadius="16dp"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <Button
-            android:id="@+id/ongoing"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="#59AFBA"
-            android:fontFamily="@font/bryndanwritebook"
-            android:text="Ongoing"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:cornerRadius="16dp"
-            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 
@@ -172,7 +129,7 @@
         android:id="@+id/addTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#59AFBA"
+        android:backgroundTint="?attr/colorPrimary"
         android:layout_margin="32dp"
         android:clickable="true"
         android:src="@drawable/_7_679828_white_plus_png_plus_icon_white_png_transparent_removebg_preview"

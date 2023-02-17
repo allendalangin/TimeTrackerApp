@@ -21,12 +21,6 @@
         />
 
     <item
-        android:id="@+id/themes"
-        android:icon="@drawable/ic_baseline_brush_24"
-        android:checkable="true"
-        android:title="Themes" />
-
-    <item
         android:id="@+id/guide"
         android:icon="@drawable/ic_baseline_library_books_24"
         android:checked="false"

@@ -10,13 +10,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavbar.Model.AddTaskModel
 import com.example.bottomnavbar.R
 import com.example.bottomnavbar.UpdateTaskActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import com.google.firebase.database.core.Context
 
 class TaskAdapter(
     var c: android.content.Context,
     var taskList: ArrayList<AddTaskModel>
-) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
+
+) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+    private val databaseReference : DatabaseReference = FirebaseDatabase.getInstance().getReference("Task")
+    private val fAuth : FirebaseAuth = FirebaseAuth.getInstance()
     class TaskViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
         val task : TextView = itemView.findViewById(R.id.taskDisplay)
@@ -62,6 +67,24 @@ class TaskAdapter(
         this.taskList.addAll(taskList)
         notifyDataSetChanged()
 
+    }
+
+    fun filterOngoing(taskList: ArrayList<AddTaskModel>) {
+        val query = databaseReference.orderByChild("status").equalTo("ongoing")
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+            taskList.clear()
+                taskList.addAll(taskList)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+
+        })
+
+        notifyDataSetChanged()
     }
 
 

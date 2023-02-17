@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.bottomnavbar.Alarm.AlarmManagerCreator
 import com.example.bottomnavbar.Model.AddTaskModel
 import com.example.bottomnavbar.databinding.ActivityNewTaskBinding
+import com.example.bottomnavbar.databinding.FragmentTasksBinding
+import com.example.bottomnavbar.databinding.FragmentUpdatetaskBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.text.SimpleDateFormat
@@ -16,13 +19,13 @@ import java.util.*
 
 class UpdateTaskActivity: AppCompatActivity() {
 
-    private lateinit var binding: ActivityNewTaskBinding
+    private lateinit var binding: FragmentUpdatetaskBinding
     private lateinit var database: DatabaseReference
     private lateinit var fAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.binding = ActivityNewTaskBinding.inflate(layoutInflater)
+        this.binding = FragmentUpdatetaskBinding.inflate(layoutInflater)
         setContentView(this.binding.root)
 
         showData()
@@ -92,6 +95,8 @@ class UpdateTaskActivity: AppCompatActivity() {
 
             val task = this.binding.taskInput.text.toString()
             val taskIntent = intent
+            val startID = startCalendar.timeInMillis.toInt()
+            val endID = endCalendar.timeInMillis.toInt()
             val taskId = taskIntent.getStringExtra("taskId").toString()
             val description = this.binding.descInput.text.toString()
             val startDate = startCalendar.timeInMillis.toString()
@@ -107,6 +112,10 @@ class UpdateTaskActivity: AppCompatActivity() {
                     database.child(taskId).child("startDate").setValue(startDate)
                     database.child(taskId).child("startDate").setValue(endDate)
 
+                    AlarmManagerCreator.cancelAlarmManager(this, startCalendar,task,startID)
+                    AlarmManagerCreator.cancelAlarmManager(this, endCalendar,task,endID)
+                    AlarmManagerCreator.createAlarmManager(this, startCalendar,task,startID)
+                    AlarmManagerCreator.createAlarmManager(this, endCalendar,task,endID)
                     Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
 
                     this.startActivity(Intent(this, NavDrawerActivity::class.java))

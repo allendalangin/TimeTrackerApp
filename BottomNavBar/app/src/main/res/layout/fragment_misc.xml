@@ -21,7 +21,7 @@
             android:layout_marginStart="18dp"
             android:fontFamily="@font/bryndanwritebook"
             android:text="Today, October 16"
-            android:textColor="#59AFBA"
+            android:textColor="?attr/colorPrimary"
             android:textSize="18sp" />
 
         <androidx.cardview.widget.CardView
@@ -31,7 +31,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="18dp"
-            android:backgroundTint="#59AFBA"
+            android:backgroundTint="?attr/colorPrimary"
             app:cardCornerRadius="16dp">
 
             <TextView
@@ -54,7 +54,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="18dp"
-            android:backgroundTint="#59AFBA"
+            android:backgroundTint="?attr/colorPrimary"
             app:cardCornerRadius="16dp">
 
             <TextView
@@ -77,7 +77,7 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/bryndanwritebook"
             android:text="Tomorrow, October 17"
-            android:textColor="#59AFBA"
+            android:textColor="?attr/colorPrimary"
             android:textSize="18sp" />
 
         <androidx.cardview.widget.CardView
@@ -87,7 +87,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="18dp"
-            android:backgroundTint="#59AFBA"
+            android:backgroundTint="?attr/colorPrimary"
             app:cardCornerRadius="16dp">
 
             <TextView
@@ -129,11 +129,11 @@
             android:layout_marginStart="12dp"
             android:layout_weight="3"
             android:alpha="0.7"
-            android:backgroundTint="#9AD5DF"
+            android:backgroundTint="?attr/colorPrimaryVariant"
             android:hint="StartTime"
             android:textAppearance="@style/BryndanWriteBook"
-            android:textColor="#59AFBA"
-            android:textColorHint="#9AD5DF"
+            android:textColor="?attr/colorPrimary"
+            android:textColorHint="?attr/colorPrimaryVariant"
             android:textSize="24sp" />
 
         <Button
@@ -142,7 +142,7 @@
             android:layout_height="50dp"
             android:layout_margin="12dp"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="#59AFBA"
+            android:backgroundTint="?attr/colorPrimary"
             android:fontFamily="@font/bryndanwritebook"
             android:text="Change"
             android:textSize="18sp"

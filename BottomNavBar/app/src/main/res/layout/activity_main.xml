@@ -1,183 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#59AFBA"
-        android:minHeight="?attr/actionBarSize"
-        android:nestedScrollingEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
-        <ImageButton
-            android:id="@+id/backToNav"
-            android:background="@color/main_blue"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/titleET"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/main_blue"
-            android:src="@drawable/ic_baseline_home_24" />
+            android:hint="@string/title" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/messageET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/message" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp">
 
-        <Button
+        <DatePicker
+            android:id="@+id/datePicker"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
-            android:layout_marginStart="12dp"
-            android:onClick="previousMonthAction"
-            android:text="@string/back"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:cornerRadius="16dp" />
-
-        <TextView
-            android:id="@+id/monthYearTV"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:fontFamily="@font/bryndanwritebook"
-            android:text="Feb 2021"
-            android:textAlignment="center"
-            android:textColor="@color/main_blue"
-            android:textSize="24sp" />
-
-        <Button
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            android:layout_gravity="center"
+            android:scaleY="0.7"
+            android:scaleX="0.7"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginRight="-30dp"
+            />
+        <TimePicker
+            android:id="@+id/timePicker"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
-            app:cornerRadius="16dp"
-            android:onClick="nextMonthAction"
-            android:text="@string/forward"
-            android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner"
+            android:layout_gravity="center"
+            android:scaleY="0.7"
+            android:scaleX="0.7"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginRight="-30dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="SUN"
-            android:textColor="@color/main_blue"
-            android:textAlignment="center"
-            android:fontFamily="@font/bryndanwritebook"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="MON"
-            android:textColor="@color/main_blue"
-            android:textAlignment="center"
-            android:fontFamily="@font/bryndanwritebook"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TUE"
-            android:textColor="@color/main_blue"
-            android:textAlignment="center"
-            android:fontFamily="@font/bryndanwritebook"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="WED"
-            android:textColor="@color/main_blue"
-            android:textAlignment="center"
-            android:fontFamily="@font/bryndanwritebook"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="THUR"
-            android:textColor="@color/main_blue"
-            android:textAlignment="center"
-            android:fontFamily="@font/bryndanwritebook"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="FRI"
-            android:textColor="@color/main_blue"
-            android:textAlignment="center"
-            android:fontFamily="@font/bryndanwritebook"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="SAT"
-            android:textColor="@color/main_blue"
-            android:textAlignment="center"
-            android:fontFamily="@font/bryndanwritebook"
-            android:textSize="18sp"/>
-
-
-    </LinearLayout>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/calendarRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="400dp" />
-
-    <androidx.cardview.widget.CardView
-      android:layout_width="match_parent"
-      android:layout_height="700dp"
-      android:backgroundTint="@color/main_blue"
-      android:layout_marginHorizontal="8dp"
-      app:cardCornerRadius="32dp"
-      app:cardElevation="4dp"/>
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="@string/schedule_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-

@@ -11,7 +11,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#59AFBA"
+        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:nestedScrollingEnabled="true"
         android:theme="?attr/actionBarTheme"
@@ -30,8 +30,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_pic"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="?attr/colorPrimary"
+            app:strokeWidth="1dp"
             android:layout_width="145dp"
             android:layout_height="145dp"
             android:layout_marginStart="4dp"
@@ -39,7 +42,6 @@
             android:background="@drawable/ic_baseline_circle_56"
             android:padding="12dp"
             android:src="@drawable/ic_baseline_person_24" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -51,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bryndanwritebook"
                 android:text="Hatdog Agamulach"
-                android:textColor="#59AFBA"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="32sp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="6dp"/>
@@ -75,7 +77,7 @@
                         android:id="@+id/editBtn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/main_blue"
+                        android:background="?attr/colorPrimary"
                         android:fontFamily="@font/bryndanwritebook"
                         android:foreground="?attr/selectableItemBackground"
                         android:text="Edit Profile"
@@ -96,7 +98,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#59AFBA"
+        android:backgroundTint="?attr/colorPrimary"
         android:layout_margin="24dp"
         app:cardCornerRadius="12dp"
         app:layout_constraintTop_toBottomOf="@+id/profile_user">
@@ -105,19 +107,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="A Guide to Task Initiation"
-                android:textSize="16sp"
-                android:fontFamily="@font/bryndanwritebook"
-                android:textColor="@color/white"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginBottom="6dp"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

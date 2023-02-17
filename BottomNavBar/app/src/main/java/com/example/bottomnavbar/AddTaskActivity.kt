@@ -1,17 +1,13 @@
 package com.example.bottomnavbar
 
 import android.app.*
-import android.app.Notification
-import android.app.PendingIntent.FLAG_MUTABLE
-import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.bottomnavbar.Alarm.AlarmReceiver
-import com.example.bottomnavbar.Alarm.MainActivity
+import com.example.bottomnavbar.Alarm.AlarmManagerCreator
 import com.example.bottomnavbar.Model.AddTaskModel
 import com.example.bottomnavbar.databinding.ActivityNewTaskBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +15,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.random.Random
 
 
 class AddTaskActivity: AppCompatActivity() {
@@ -29,12 +26,16 @@ class AddTaskActivity: AppCompatActivity() {
     val dateFormat = "MM dd, yyyy"
     val timeFormat = "hh:mm a"
 
+    override fun onBackPressed() {
+        // do nothing
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.binding = ActivityNewTaskBinding.inflate(layoutInflater)
         setContentView(this.binding.root)
 
-        createNotificationChannel()
+
         val startCalendar = java.util.Calendar.getInstance()
         val endCalendar = java.util.Calendar.getInstance()
 
@@ -103,6 +104,8 @@ class AddTaskActivity: AppCompatActivity() {
             val startDateOnly = this.binding.startDateView.text.toString()
             val startTime = this.binding.startTimeView.text.toString()
             val startDate = startCalendar.timeInMillis.toString()
+            val startID = startCalendar.timeInMillis.toInt()
+            val endID = endCalendar.timeInMillis.toInt()
             val endDateOnly = this.binding.endDateView.text.toString()
             val endTime = this.binding.endTimeView.text.toString()
             val endDate = endCalendar.timeInMillis.toString()
@@ -110,6 +113,7 @@ class AddTaskActivity: AppCompatActivity() {
             val creationDate = startCalendar.time.toString()
             val taskId = database.key.toString()
             val Task = AddTaskModel(task, taskOwner, description, creationDate, startDate, endDate, taskId)
+
 
             when {
                 TextUtils.isEmpty(task) -> Toast.makeText(this, "Please enter a task.", Toast.LENGTH_SHORT).show()
@@ -122,23 +126,8 @@ class AddTaskActivity: AppCompatActivity() {
                 else ->
                     database.setValue(Task).addOnSuccessListener {
 
-                        val intent = Intent(applicationContext, Notification::class.java)
-                        intent.putExtra("titleExtra", task)
-                        intent.putExtra("messageExtra", description)
-
-                        val pendingIntent = PendingIntent.getBroadcast(
-                            applicationContext,
-                            notificationID,
-                            intent,
-                            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-                        )
-
-                        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-                        alarmManager.setExactAndAllowWhileIdle(
-                            AlarmManager.RTC_WAKEUP,
-                            startCalendar.timeInMillis,
-                            pendingIntent
-                        )
+                        AlarmManagerCreator.createAlarmManager(this, startCalendar,task, startID)
+                        AlarmManagerCreator.createAlarmManager(this, endCalendar,task, endID)
 
                     this.binding.taskInput.text.clear()
                     this.binding.descInput.text.clear()
@@ -187,37 +176,6 @@ class AddTaskActivity: AppCompatActivity() {
     private fun updateEndTime(taskCalendar: java.util.Calendar) {
         val sdf = SimpleDateFormat(timeFormat, Locale.US)
         binding.endTimeView.text = sdf.format(taskCalendar.time)
-    }
-
-    private fun scheduleNotification()
-    {
-    }
-
-    private fun showAlert(time: Long, title: String, message: String)
-    {
-        val date = Date(time)
-        val dateFormat = android.text.format.DateFormat.getLongDateFormat(applicationContext)
-        val timeFormat = android.text.format.DateFormat.getTimeFormat(applicationContext)
-
-        AlertDialog.Builder(this)
-            .setTitle("Notification Scheduled")
-            .setMessage(
-                "Title: " + title +
-                        "\nMessage: " + message +
-                        "\nAt: " + dateFormat.format(date) + " " + timeFormat.format(date))
-            .setPositiveButton("Okay"){_,_ ->}
-            .show()
-    }
-
-    private fun createNotificationChannel()
-    {
-        val name = "Notif Channel"
-        val desc = "A Description of the Channel"
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel(channelID, name, importance)
-        channel.description = desc
-        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(channel)
     }
 
 }

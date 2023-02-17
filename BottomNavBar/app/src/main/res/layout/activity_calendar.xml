@@ -1,168 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#59AFBA"
+        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:nestedScrollingEnabled="true"
-        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backToNav"
+            android:background="?attr/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="?attr/colorPrimary"
+            android:src="@drawable/ic_baseline_home_24" />
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context=".CalendarActivity"
-        app:layout_constraintTop_toBottomOf="@id/toolbar2">
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp">
+            android:layout_weight="1"
+            android:background="@null"
+            android:layout_marginStart="12dp"
+            android:onClick="previousMonthAction"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp" />
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:layout_marginStart="12dp"
-                android:onClick="previousMonthAction"
-                android:text="@string/back"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:cornerRadius="16dp" />
-
-            <TextView
-                android:id="@+id/monthYearTV"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:fontFamily="@font/bryndanwritebook"
-                android:text="Feb 2021"
-                android:textAlignment="center"
-                android:textColor="@color/main_blue"
-                android:textSize="24sp" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                app:cornerRadius="16dp"
-                android:onClick="nextMonthAction"
-                android:text="@string/forward"
-                android:layout_marginEnd="12dp"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/monthYearTV"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="2"
+            android:fontFamily="@font/bryndanwritebook"
+            android:text="Feb 2021"
+            android:textAlignment="center"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="24sp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="SUN"
-                android:textColor="@color/gray"
-                android:textAlignment="center"
-                android:fontFamily="@font/bryndanwritebook"
-                android:textSize="18sp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            app:cornerRadius="16dp"
+            android:onClick="nextMonthAction"
+            android:text="@string/forward"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="MON"
-                android:textColor="@color/gray"
-                android:textAlignment="center"
-                android:fontFamily="@font/bryndanwritebook"
-                android:textSize="18sp"/>
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TUE"
-                android:textColor="@color/gray"
-                android:textAlignment="center"
-                android:fontFamily="@font/bryndanwritebook"
-                android:textSize="18sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="WED"
-                android:textColor="@color/gray"
-                android:textAlignment="center"
-                android:fontFamily="@font/bryndanwritebook"
-                android:textSize="18sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SUN"
+            android:textColor="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:fontFamily="@font/bryndanwritebook"
+            android:textSize="18sp"/>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="THUR"
-                android:textColor="@color/gray"
-                android:textAlignment="center"
-                android:fontFamily="@font/bryndanwritebook"
-                android:textSize="18sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="MON"
+            android:textColor="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:fontFamily="@font/bryndanwritebook"
+            android:textSize="18sp"/>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="FRI"
-                android:textColor="@color/gray"
-                android:textAlignment="center"
-                android:fontFamily="@font/bryndanwritebook"
-                android:textSize="18sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TUE"
+            android:textColor="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:fontFamily="@font/bryndanwritebook"
+            android:textSize="18sp"/>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="SAT"
-                android:textColor="@color/gray"
-                android:textAlignment="center"
-                android:fontFamily="@font/bryndanwritebook"
-                android:textSize="18sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="WED"
+            android:textColor="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:fontFamily="@font/bryndanwritebook"
+            android:textSize="18sp"/>
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="THUR"
+            android:textColor="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:fontFamily="@font/bryndanwritebook"
+            android:textSize="18sp"/>
 
-        </LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="FRI"
+            android:textColor="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:fontFamily="@font/bryndanwritebook"
+            android:textSize="18sp"/>
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SAT"
+            android:textColor="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:fontFamily="@font/bryndanwritebook"
+            android:textSize="18sp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/calendarRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calendarRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp" />
+
+</LinearLayout>
 
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

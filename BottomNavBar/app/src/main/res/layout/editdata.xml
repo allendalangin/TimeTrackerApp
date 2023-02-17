@@ -27,7 +27,7 @@
                 android:layout_weight="7"
                 android:fontFamily="@font/bryndanwritebook"
                 android:text="Username"
-                android:textColor="#59AFBA"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="24sp" />
 
             <EditText
@@ -37,12 +37,12 @@
                 android:layout_marginStart="12dp"
                 android:layout_weight="3"
                 android:alpha="0.7"
-                android:backgroundTint="#9AD5DF"
+                android:backgroundTint="?attr/colorPrimaryVariant"
                 android:hint="Username"
                 android:inputType="text"
                 android:textAppearance="@style/BryndanWriteBook"
-                android:textColor="#59AFBA"
-                android:textColorHint="#9AD5DF"
+                android:textColor="?attr/colorPrimary"
+                android:textColorHint="?attr/colorPrimaryVariant"
                 android:textSize="24sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout

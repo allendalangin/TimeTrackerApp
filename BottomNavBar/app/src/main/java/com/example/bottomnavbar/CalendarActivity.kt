@@ -14,6 +14,12 @@ import android.widget.ImageButton
 import com.example.bottomnavbar.Adapter.CalendarAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import android.widget.Toast
+import com.example.bottomnavbar.Model.AddTaskModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
@@ -28,7 +34,7 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
     @RequiresApi(api = Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_calendar)
         val backToNav = findViewById<ImageButton>(R.id.backToNav)
         backToNav.setOnClickListener() {
             val intent = Intent (this, NavDrawerActivity::class.java)
@@ -92,9 +98,25 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     override fun onItemClick(position: Int, dayText: String?) {
+        val date = stringToLong(selectedDate.toString())
+        val database = FirebaseDatabase.getInstance()
+        val fAuth = FirebaseAuth.getInstance().currentUser
+        val userId = fAuth?.uid
+        val ref = database.getReference("Task")
+
         if (dayText != "") {
             val message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate)
             Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         }
     }
+
+    fun stringToLong(string: String): Long {
+        return try {
+            string.toLong()
+        } catch (e: NumberFormatException) {
+            0
+        }
+    }
+
+
 }

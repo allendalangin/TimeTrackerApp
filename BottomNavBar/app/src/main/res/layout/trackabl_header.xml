@@ -11,8 +11,8 @@
         android:layout_width="322dp"
         android:layout_height="227dp"
         android:src="@drawable/trackabl_logo"
-        tools:layout_editor_absoluteX="-8dp"
-        tools:layout_editor_absoluteY="-19dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
